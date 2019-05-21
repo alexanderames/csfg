@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :product do
-    Faker::Cannabis.cannabinoid_abbreviation
+    name { Faker::Cannabis.cannabinoid_abbreviation }
   end
 end
