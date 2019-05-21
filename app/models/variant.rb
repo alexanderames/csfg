@@ -1,4 +1,4 @@
 class Variant < ApplicationRecord
   belongs_to :product
-  has_one :order
+  has_many :order
 end

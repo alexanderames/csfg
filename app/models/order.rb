@@ -2,20 +2,10 @@ class Order < ApplicationRecord
   belongs_to :customer
   has_many :variants
 
-  def total_cost
-    variants.sum(&:cost)
-  end
+  enum status: %i[pending processing fulfilled delivered canceled]
 
-  # case status
-  # when 1
-  #   'processing'
-  # when 2
-  #   'fulfilled'
-  # when 3
-  #   'delivered'
-  # when 4
-  #   'canceled'
-  # else
-  #   'pending'
-  # end
+  def total_cost
+    @total_cost =
+      variant.sum(&:cost)
+  end
 end
